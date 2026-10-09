@@ -9,6 +9,7 @@ cleaned AS (
             unique_key,
             created_date,
             closed_date,
+            council_district,
             agency,
             agency_name,
             complaint_type,
@@ -50,6 +51,7 @@ cleaned AS (
             WHEN UPPER(TRIM(borough)) IN ('STATEN ISLAND', 'RICHMOND COUNTY') THEN 'Staten Island'
             ELSE 'UNKNOWN or CITYWIDE'
         END AS borough,
+        CAST(council_district AS STRING) AS council_district,
         CAST(incident_address AS STRING) AS incident_address,
         CAST(street_name AS STRING) AS street_name,
         CAST(cross_street_1 AS STRING) AS cross_street_1,
